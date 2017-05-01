@@ -28,7 +28,7 @@ type DraftJsTextPropsType = {
 const DraftJsText = (props: DraftJsTextPropsType): any => {
   let textElements = props.text;
 
-  if (textElements) {
+  if (textElements != null) {
     textElements = loadAttributes(
       props.text,
       props.customStyles,
