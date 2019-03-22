@@ -6,14 +6,12 @@
 
 // @flow
 
-import React from 'react';
-import {
-  Text,
-} from 'react-native';
+import React from "react";
+import { Text } from "react-native";
 
-import loadAttributes from '../loadAttributes';
+import loadAttributes from "../loadAttributes";
 
-import defaultStyles from './defaultStyles';
+import defaultStyles from "./defaultStyles";
 
 type DraftJsTextPropsType = {
   type: string,
@@ -22,7 +20,7 @@ type DraftJsTextPropsType = {
   inlineStyles: Array<Object>,
   entityRanges: Array<Object>,
   entityMap: Object,
-  navigate?: Function,
+  navigate?: Function
 };
 
 const DraftJsText = (props: DraftJsTextPropsType): any => {
@@ -35,29 +33,27 @@ const DraftJsText = (props: DraftJsTextPropsType): any => {
       props.inlineStyles,
       props.entityRanges,
       props.entityMap,
-      props.navigate,
+      props.navigate
     );
 
-    const customStyle = props.customStyles ? props.customStyles[props.type] : undefined;
+    const customStyle = props.customStyles
+      ? props.customStyles[props.type]
+      : undefined;
 
-    return (<Text
-      style={[defaultStyles[props.type], customStyle]}
-    >{textElements}</Text>);
+    return (
+      <Text style={[defaultStyles[props.type], customStyle]}>
+        {textElements}
+      </Text>
+    );
   }
   return null;
 };
 
-DraftJsText.propTypes = {
-  text: React.PropTypes.string,
-  customStyles: React.PropTypes.any,
-  inlineStyles: React.PropTypes.array,
-};
-
 DraftJsText.defaultProps = {
-  text: '',
+  text: "",
   customStyles: {},
   inlineStyles: [],
-  navigate: undefined,
+  navigate: undefined
 };
 
 export default DraftJsText;
